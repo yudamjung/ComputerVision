@@ -21,15 +21,26 @@ T = 0.7
 # T 가 0.5 or 0.6 정도로 줬을 때 FP가 없는걸로 보임
 good_match = []
 for nearest1, nearest2 in knn_match:
-    if (nearest1.distance / nearest2.distance < T) : good_match.append(nearest1)
+    if (nearest1.distance / nearest2.distance < T) :
+        good_match.append(nearest1)
 print(f'매칭에 걸린 시간 : {time.time() - start}')
 
 img_match = np.empty(
-    (max(img1.shape[0], img2.shape[0]), img1.shape[1] + img2.shape[1], 3),
+    (max(img1.shape[0], img2.shape[0]),
+     img1.shape[1] + img2.shape[1],
+     3),
     dtype=np.uint8
 )
 
-cv.drawMatches(img1, kp1, img2, kp2, good_match, img_match, flags=cv.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
+cv.drawMatches(
+    img1,
+    kp1,
+    img2,
+    kp2,
+    good_match,
+    img_match,
+    flags=cv.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS
+)
 
 cv.imshow('Good Matches', img_match)
 

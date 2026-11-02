@@ -1,5 +1,10 @@
 import cv2 as cv
 import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+
+font_path = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
+font_name = font_manager.FontProperties(fname=font_path).get_name()
+rc('font', family=font_name)
 
 img = cv.imread('mistyroad.jpg')
 

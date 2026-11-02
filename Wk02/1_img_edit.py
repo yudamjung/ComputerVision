@@ -16,6 +16,11 @@ cv.imshow('Color image', img)
 cv.imshow('Gray image', gray)
 cv.imshow('Gray image small', gray_resize)
 
+cv.imshow('Center Half',
+          img[img.shape[0]//4 : 3 * img.shape[0] // 4,
+          img.shape[1]//4 : 3 * img.shape[1]//4,
+          :])
+
 cv.waitKey(0)
 cv.destroyAllWindows()
 cv.waitKey(30)
